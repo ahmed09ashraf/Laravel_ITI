@@ -9,9 +9,9 @@ class PostController extends Controller
 {
 
     public static $posts = [
-        ['id' => 0, 'title' => 'Laravel', 'description' => "Laravel", 'post_creator' => 'Ahmed', 'created_at' => '2022-04-16 10:37:00'],
-        ['id' => 1, 'title' => 'PHP', 'description' => "PHP", 'post_creator' => 'Mohamed', 'created_at' => '2022-04-16 10:37:00'],
-        ['id' => 2, 'title' => 'Javascript', 'description' => "JS", 'post_creator' => 'Ali', 'created_at' => '2022-04-16 10:37:00'],
+        ['id' => 0, 'title' => 'Laravel', 'description' => "Laravel", 'post_creator' => 'Ahmed', 'created_at' => '2023-01-28 03:53:00'],
+        ['id' => 1, 'title' => 'PHP', 'description' => "PHP", 'post_creator' => 'Ashraf', 'created_at' => '2023-01-28 10:37:00'],
+        ['id' => 2, 'title' => 'Javascript', 'description' => "JS", 'post_creator' => 'Ibrahim', 'created_at' => '2023-01-28 03:53:00'],
     ];
 
     public function index()
@@ -29,7 +29,9 @@ class PostController extends Controller
 
     public function store()
     {
-        return 'Stored';
+        return view('posts.index', [
+            'posts' => self::$posts,
+        ]);
     }
 
     public function show($postId)
@@ -55,10 +57,10 @@ class PostController extends Controller
 
     public function delete($id)
     {
-        return 'Deleted';
-        // unset(self::$posts[$id]);
-        // return view('posts.index', [
-        //     'posts' => self::$posts,
-        // ]);
+        // return 'Deleted';
+        unset(self::$posts[$id]);
+        return view('posts.index', [
+            'posts' => self::$posts,
+        ]);
     }
 }

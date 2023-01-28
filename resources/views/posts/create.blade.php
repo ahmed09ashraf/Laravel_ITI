@@ -15,12 +15,14 @@
     </div>
 
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Post Creator</label>
-        <select name="creator" class="form-control">
+        <label class="form-check-label">Post Creator</label>
+        <select  class="form-control">
             <option value="Ahmed">Ahmed</option>
-            <option value="Mohamed">Mohamed</option>
-            <option value="Mahmoud">Mahmoud</option>
+            <option value="Ashraf">Ashraf</option>
+            <option value="Ibrahim">Ibrahim</option>
         </select>
+
+        <!-- <input type="text" class="form-control" name="creator">  -->
     </div>
     <button type="submit" class="btn btn-success">Create</button>
 </form>
