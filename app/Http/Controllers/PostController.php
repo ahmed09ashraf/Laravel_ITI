@@ -44,15 +44,16 @@ class PostController extends Controller
         return view("posts.edit", ["post" => self::$posts[$postId]]);
     }
 
-    public function update(Request $req)
+    public function update() //Request $req
     {
-        $request = $req->all();
-        self::$posts[$request['id']]['title'] = $request['title'];
-        self::$posts[$request['id']]['description'] = $request['description'];
-        self::$posts[$request['id']]['post_creator'] = $request['creator'];
-        return view('posts.index', [
-            'posts' => self::$posts,
-        ]);
+        // $request = $req->all();
+        // self::$posts[$request['id']]['title'] = $request['title'];
+        // self::$posts[$request['id']]['description'] = $request['description'];
+        // self::$posts[$request['id']]['post_creator'] = $request['creator'];
+        // // return view('posts.index', [
+        // //     'posts' => self::$posts,
+        // // ]);
+        return redirect()->route('posts.index') ;
     }
 
     public function delete($id)
