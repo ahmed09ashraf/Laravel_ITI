@@ -29,9 +29,7 @@ class PostController extends Controller
 
     public function store()
     {
-        return view('posts.index', [
-            'posts' => self::$posts,
-        ]);
+        return redirect()->route('posts.index');
     }
 
     public function show($postId)
@@ -43,8 +41,8 @@ class PostController extends Controller
     {
         return view("posts.edit", ["post" => self::$posts[$postId]]);
     }
-
-    public function update() //Request $req
+    
+    public function update() //update(Request $req)
     {
         // $request = $req->all();
         // self::$posts[$request['id']]['title'] = $request['title'];
@@ -53,7 +51,7 @@ class PostController extends Controller
         // // return view('posts.index', [
         // //     'posts' => self::$posts,
         // // ]);
-        return redirect()->route('posts.index') ;
+        return redirect()->route('posts.index');
     }
 
     public function delete($id)

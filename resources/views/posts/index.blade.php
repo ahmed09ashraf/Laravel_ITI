@@ -24,9 +24,9 @@
             <td>{{ $post['post_creator'] }}</td>
             <td>{{ $post['created_at'] }}</td>
             <td>
-                <a href="{{ route('posts.view', ['post' => $post['id']]) }}" class="btn btn-info">View</a>
+                <a href="{{ route('posts.show', ['post' => $post['id']]) }}" class="btn btn-info">View</a>
                 <a href="{{ route('posts.edit', ['post' => $post['id']]) }}" class="btn btn-primary">Edit</a>
-                <a href="{{ route('posts.delete', ['post' => $post['id']]) }}" class="btn btn-danger">Delete</a>
+                <a href="{{ route('posts.destroy', ['post' => $post['id']]) }}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         @endforeach
