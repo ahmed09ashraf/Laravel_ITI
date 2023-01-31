@@ -3,7 +3,7 @@
 @section('title')Create @endsection
 
 @section('content')
-<form method="POST" action="/posts">
+<form method="POST" action="{{ route('posts.store') }}">
     @csrf
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Title</label>
@@ -16,10 +16,10 @@
 
     <div class="mb-3">
         <label class="form-check-label">Post Creator</label>
-        <select  class="form-control">
-            <option value="Ahmed">Ahmed</option>
-            <option value="Ashraf">Ashraf</option>
-            <option value="Ibrahim">Ibrahim</option>
+        <select name="post_creator" class="form-control">
+            @foreach ($users as $user)
+            <option value="{{ $user->id }}">{{ $user->name }}</option>
+            @endforeach
         </select>
 
         <!-- <input type="text" class="form-control" name="creator">  -->

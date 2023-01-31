@@ -3,7 +3,8 @@
 @section('title')Edit @endsection
 
 @section('content')
-<form method="POST" action="{{ route('posts.update') }}">
+<form method="POST" action="{{ route('posts.update', ['post' => $post['id']]) }}">
+    @method('PUT')
     @csrf
     <input type="hidden" name="id" value={{ $post['id'] }} class="form-control" id="exampleFormControlInput1">
     <div class="mb-3">
@@ -16,11 +17,11 @@
     </div>
     <div class="mb-3">
         <label  class="form-label">Post Creator</label>
-        <select name="creator" value={{ $post['post_creator'] }} class="form-control">
-            <option value="{{ $post['post_creator'] }}" selected hidden>{{ $post['post_creator'] }}</option>
-            <option value="Ahmed">Ahmed</option>
-            <option value="Ashraf">Ashraf</option>
-            <option value="Ibrahim">Ibrahim</option>
+        <select name="creator" value={{ $post->user->name }} class="form-control">
+            <option value="{{ $post['user_id'] }}" selected hidden>{{ $post->user->name }}</option>
+            @foreach ($users as $user)
+            <option value="{{ $user->id }}">{{ $user->name }}</option>
+            @endforeach
         </select>
     <!-- <input type="text" class="form-control" name="creator">  -->
     </div>
