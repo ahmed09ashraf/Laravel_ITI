@@ -5,6 +5,7 @@
 @section('content')
 <div class="text-center">
     <a href="{{ route('posts.create') }}" class="mt-4 btn btn-success">Create Post</a>
+    <a href="{{ route('posts.archive') }}" class="mt-4 btn btn-danger"> Deleted Posts</a>
 </div>
 <table class="table mt-4">
     <thead>
@@ -41,4 +42,10 @@
         @endforeach
     </tbody>
 </table>
+
+<div class="d-flex justify-content-center m-3">
+    <span>
+        {{$posts->links()}}
+    </span>
+</div>
     @endsection

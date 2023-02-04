@@ -3,7 +3,16 @@
 @section('title')Create @endsection
 
 @section('content')
-<form method="POST" action="{{ route('posts.store') }}">
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+<form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Title</label>
@@ -23,6 +32,10 @@
         </select>
 
         <!-- <input type="text" class="form-control" name="creator">  -->
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Image</label>
+        <input type="file" class="form-control" name="image">
     </div>
     <button type="submit" class="btn btn-success">Create</button>
 </form>

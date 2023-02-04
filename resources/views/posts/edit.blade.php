@@ -3,7 +3,16 @@
 @section('title')Edit @endsection
 
 @section('content')
-<form method="POST" action="{{ route('posts.update', ['post' => $post['id']]) }}">
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+<form method="POST" action="{{ route('posts.update', ['post' => $post['id']]) }}" enctype="multipart/form-data">
     @method('PUT')
     @csrf
     <input type="hidden" name="id" value={{ $post['id'] }} class="form-control" id="exampleFormControlInput1">
@@ -24,6 +33,10 @@
             @endforeach
         </select>
     <!-- <input type="text" class="form-control" name="creator">  -->
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Image</label>
+        <input type="file" class="form-control" name="image">
     </div>
     <button type="submit" class="btn btn-success">Update</button>
 </form>
