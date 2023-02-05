@@ -1,2 +1,2 @@
 # Laravel_ITI
-Laravel Labs | ITI Fullstack-PHP
+Blog Posts | ITI Fullstack-PHP
